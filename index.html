@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bomb Burgers | Hamburguesería</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fuentes Google: Anton (Explosivo/Moderno) y Lato (Legible) -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Anton&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        display: ['Anton', 'sans-serif'],
+                    },
+                    colors: {
+                        'bomb-purple': {
+                            500: '#7c3aed', // Morado vibrante del logo
+                            800: '#4c1d95',
+                            900: '#2e1065', // Fondo oscuro
+                        },
+                        'bomb-orange': {
+                            500: '#f97316', // Naranja explosivo del logo
+                            600: '#ea580c',
+                        },
+                        'bomb-yellow': {
+                            400: '#facc15', // Amarillo para acentos
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Fondo degradado explosivo */
+        .bg-explosive {
+            background-image: linear-gradient(to bottom, #2e1065, #1e1b4b);
+        }
+        .text-shadow-bomb {
+            text-shadow: 3px 3px 0px #f97316, 6px 6px 0px #2e1065;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(249, 115, 22, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-explosive text-white antialiased font-sans">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-bomb-purple-900/95 backdrop-blur-sm shadow-lg text-white border-b-4 border-bomb-orange-500">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="font-display text-3xl md:text-4xl font-bold tracking-wider flex items-center gap-2 uppercase">
+                <i class="fa-solid fa-bomb text-bomb-orange-500 animate-pulse"></i> The Bomb Burgers
+            </a>
+            <div class="hidden md:flex gap-8 font-bold uppercase tracking-widest text-sm">
+                <a href="#inicio" class="hover:text-bomb-orange-500 transition">Inicio</a>
+                <a href="#menu" class="hover:text-bomb-orange-500 transition">Menú</a>
+                <a href="#ubicacion" class="hover:text-bomb-orange-500 transition">Ubicación</a>
+            </div>
+            <!-- Botón Móvil -->
+            <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-2xl text-bomb-orange-500">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-bomb-purple-800 p-4 space-y-3 border-t border-bomb-purple-900">
+            <a href="#inicio" class="block hover:text-bomb-orange-500 uppercase font-bold">Inicio</a>
+            <a href="#menu" class="block hover:text-bomb-orange-500 uppercase font-bold">Menú</a>
+            <a href="#ubicacion" class="block hover:text-bomb-orange-500 uppercase font-bold">Ubicación</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="inicio" class="relative h-[70vh] flex items-center justify-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1965&auto=format&fit=crop');">
+        <div class="absolute inset-0 bg-gradient-to-t from-bomb-purple-900 via-bomb-purple-900/70 to-transparent"></div>
+        <div class="relative z-10 text-center px-4">
+            <i class="fa-solid fa-bomb text-7xl md:text-9xl text-bomb-orange-500 mb-4 animate-bounce"></i>
+            <h1 class="text-6xl md:text-8xl font-display font-black text-white mb-4 text-shadow-bomb uppercase">
+                Sabor <span class="text-bomb-yellow-400">Explosivo</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto font-bold uppercase tracking-wider">Hamburguesas que son una bomba de sabor.</p>
+            <a href="#menu" class="inline-block bg-bomb-orange-600 hover:bg-bomb-orange-500 text-white font-bold py-4 px-10 rounded-full transition transform hover:scale-110 shadow-xl uppercase tracking-widest border-b-4 border-bomb-orange-800">
+                Ver Menú Bomba
+            </a>
+        </div>
+    </header>
+
+    <!-- Selector de Categorías (Sticky) -->
+    <div class="sticky top-[64px] z-40 bg-bomb-purple-800/90 backdrop-blur-md shadow-md py-4 overflow-x-auto border-b border-bomb-purple-700">
+        <div class="container mx-auto px-4">
+            <div class="flex space-x-4 md:justify-center min-w-max">
+                <a href="#hamburguesas" class="px-6 py-3 rounded-full bg-bomb-purple-700 border-2 border-bomb-purple-600 hover:border-bomb-orange-500 hover:bg-bomb-orange-500 text-white transition font-bold flex items-center gap-3 uppercase tracking-wide group">
+                    <i class="fa-solid fa-burger text-bomb-yellow-400 group-hover:text-white"></i> Hamburguesas
+                </a>
+                <a href="#pizzas" class="px-6 py-3 rounded-full bg-bomb-purple-700 border-2 border-bomb-purple-600 hover:border-bomb-orange-500 hover:bg-bomb-orange-500 text-white transition font-bold flex items-center gap-3 uppercase tracking-wide group">
+                    <i class="fa-solid fa-pizza-slice text-bomb-yellow-400 group-hover:text-white"></i> Pizzas
+                </a>
+                <a href="#empanadas" class="px-6 py-3 rounded-full bg-bomb-purple-700 border-2 border-bomb-purple-600 hover:border-bomb-orange-500 hover:bg-bomb-orange-500 text-white transition font-bold flex items-center gap-3 uppercase tracking-wide group">
+                    <i class="fa-solid fa-star text-bomb-yellow-400 group-hover:text-white"></i> Empanadas
+                </a>
+                <a href="#bebidas" class="px-6 py-3 rounded-full bg-bomb-purple-700 border-2 border-bomb-purple-600 hover:border-bomb-orange-500 hover:bg-bomb-orange-500 text-white transition font-bold flex items-center gap-3 uppercase tracking-wide group">
+                    <i class="fa-solid fa-beer-mug-empty text-bomb-yellow-400 group-hover:text-white"></i> Bebidas
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menú Principal -->
+    <main id="menu" class="container mx-auto px-4 py-16 space-y-20">
+
+        <!-- Sección Hamburguesas -->
+        <section id="hamburguesas" class="scroll-mt-32">
+            <div class="flex items-center mb-10">
+                <i class="fa-solid fa-bomb text-4xl text-bomb-orange-500 mr-4 animate-pulse"></i>
+                <h2 class="text-5xl font-display font-bold text-white uppercase">
+                    Hamburguesas <span class="text-bomb-yellow-400">Explosivas</span>
+                </h2>
+            </div>
+            <p class="text-lg text-gray-300 mb-8 ml-14 font-bold uppercase tracking-wide">(Todas incluyen papas rústicas)</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                
+                <!-- Item 1 -->
+                <div class="bg-bomb-purple-800 rounded-2xl shadow-xl overflow-hidden transition duration-300 card-hover border-2 border-bomb-purple-700">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=800&auto=format&fit=crop" alt="Hamburguesa Clásica" class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                        <div class="absolute top-0 right-0 bg-bomb-orange-600 text-white font-display font-bold text-2xl px-4 py-2 rounded-bl-2xl uppercase">
+                            $4500
+                        </div>
+                    </div>
+                    <div class="p-6 relative">
+                        <h3 class="text-2xl font-display font-bold text-white mb-3 uppercase">La Clásica Bomba</h3>
+                        <p class="text-gray-300 text-sm mb-6 h-12 font-medium">Doble carne, cheddar fundido, panceta crocante, cebolla caramelizada y salsa barbacoa secreta.</p>
+                        <a href="https://wa.me/5491100000000?text=Hola,%20quiero%20pedir%20La%20Clasica%20Bomba" target="_blank" class="block w-full text-center bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-3 uppercase tracking-wider">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i> Pedir Ahora
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="bg-bomb-purple-800 rounded-2xl shadow-xl overflow-hidden transition duration-300 card-hover border-2 border-bomb-purple-700">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=800&auto=format&fit=crop" alt="Hamburguesa Monstruo" class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                        <div class="absolute top-0 right-0 bg-bomb-orange-600 text-white font-display font-bold text-2xl px-4 py-2 rounded-bl-2xl uppercase">
+                            $5800
+                        </div>
+                    </div>
+                    <div class="p-6 relative">
+                        <h3 class="text-2xl font-display font-bold text-white mb-3 uppercase">La Mega Explosión</h3>
+                        <p class="text-gray-300 text-sm mb-6 h-12 font-medium">Triple carne smash, triple queso cheddar, huevo frito, lechuga, tomate y salsa mil islas.</p>
+                        <a href="https://wa.me/5491100000000?text=Hola,%20quiero%20pedir%20La%20Mega%20Explosion" target="_blank" class="block w-full text-center bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-3 uppercase tracking-wider">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i> Pedir Ahora
+                        </a>
+                    </div>
+                </div>
+
+                 <!-- Item 3 -->
+                 <div class="bg-bomb-purple-800 rounded-2xl shadow-xl overflow-hidden transition duration-300 card-hover border-2 border-bomb-purple-700">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="https://images.unsplash.com/photo-1550950158-d0d960dff51b?q=80&w=800&auto=format&fit=crop" alt="Hamburguesa Veggie" class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                        <div class="absolute top-0 right-0 bg-bomb-orange-600 text-white font-display font-bold text-2xl px-4 py-2 rounded-bl-2xl uppercase">
+                            $4200
+                        </div>
+                    </div>
+                    <div class="p-6 relative">
+                        <h3 class="text-2xl font-display font-bold text-white mb-3 uppercase">La Veggie Atómica</h3>
+                        <p class="text-gray-300 text-sm mb-6 h-12 font-medium">Medallón de lentejas y arroz yamaní, rúcula fresca, queso brie, tomates secos y alioli casero.</p>
+                        <a href="https://wa.me/5491100000000?text=Hola,%20quiero%20pedir%20La%20Veggie%20Atomica" target="_blank" class="block w-full text-center bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-3 uppercase tracking-wider">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i> Pedir Ahora
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sección Pizzas -->
+        <section id="pizzas" class="scroll-mt-32">
+            <div class="flex items-center mb-10">
+                <i class="fa-solid fa-pizza-slice text-4xl text-bomb-yellow-400 mr-4 animate-pulse"></i>
+                <h2 class="text-5xl font-display font-bold text-white uppercase">
+                    Pizzas <span class="text-bomb-orange-500">Peligrosas</span>
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                
+                <!-- Pizza 1 -->
+                <div class="bg-bomb-purple-800 rounded-2xl shadow-xl overflow-hidden transition duration-300 card-hover border-2 border-bomb-purple-700">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=800&auto=format&fit=crop" alt="Pizza Pepperoni" class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                        <div class="absolute top-0 right-0 bg-bomb-orange-600 text-white font-display font-bold text-2xl px-4 py-2 rounded-bl-2xl uppercase">
+                            $6200
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-display font-bold text-white mb-3 uppercase">Pepperoni Infernal</h3>
+                        <p class="text-gray-300 text-sm mb-6 h-12 font-medium">Salsa de tomate casera, muzzarella abundante y pepperoni con un toque de miel picante.</p>
+                        <a href="https://wa.me/5491100000000?text=Hola,%20quiero%20pedir%20Pizza%20Pepperoni%20Infernal" target="_blank" class="block w-full text-center bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-3 uppercase tracking-wider">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i> Pedir Ahora
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Pizza 2 -->
+                <div class="bg-bomb-purple-800 rounded-2xl shadow-xl overflow-hidden transition duration-300 card-hover border-2 border-bomb-purple-700">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=800&auto=format&fit=crop" alt="Pizza Napolitana" class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                        <div class="absolute top-0 right-0 bg-bomb-orange-600 text-white font-display font-bold text-2xl px-4 py-2 rounded-bl-2xl uppercase">
+                            $5900
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-display font-bold text-white mb-3 uppercase">Napolitana Especial</h3>
+                        <p class="text-gray-300 text-sm mb-6 h-12 font-medium">Rodajas de tomate fresco, muzzarella, ajo, perejil y aceitunas negras.</p>
+                        <a href="https://wa.me/5491100000000?text=Hola,%20quiero%20pedir%20Pizza%20Napolitana%20Especial" target="_blank" class="block w-full text-center bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-3 uppercase tracking-wider">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i> Pedir Ahora
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sección Empanadas -->
+        <section id="empanadas" class="scroll-mt-32">
+            <div class="flex items-center mb-10">
+                <i class="fa-solid fa-star text-4xl text-bomb-orange-500 mr-4 animate-pulse"></i>
+                <h2 class="text-5xl font-display font-bold text-white uppercase">
+                    Empanadas & <span class="text-bomb-yellow-400">Entradas</span>
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                
+                <!-- Empanada 1 -->
+                <div class="bg-bomb-purple-800 rounded-2xl shadow-xl overflow-hidden transition duration-300 card-hover border-2 border-bomb-purple-700">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="https://images.unsplash.com/photo-1616035978184-e43597d5a570?q=80&w=800&auto=format&fit=crop" alt="Empanadas" class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                        <div class="absolute top-0 right-0 bg-bomb-orange-600 text-white font-display font-bold text-2xl px-4 py-2 rounded-bl-2xl uppercase">
+                            $8500
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-display font-bold text-white mb-3 uppercase">Docena Surtida Bomba</h3>
+                        <p class="text-gray-300 text-sm mb-6 h-12 font-medium">Carne cortada a cuchillo, Pollo al verdeo, Jamón y Queso, Verdura.</p>
+                        <a href="https://wa.me/5491100000000?text=Hola,%20quiero%20una%20docena%20surtida%20bomba" target="_blank" class="block w-full text-center bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-3 uppercase tracking-wider">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i> Pedir Ahora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Ubicación y Horarios -->
+    <section id="ubicacion" class="bg-bomb-purple-900 text-white py-20 border-t-4 border-bomb-orange-600">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-10 items-stretch">
+                
+                <!-- Info -->
+                <div class="w-full md:w-1/3 bg-bomb-purple-800 p-10 rounded-3xl shadow-2xl border-2 border-bomb-purple-700">
+                    <div class="flex items-center mb-8 border-b-2 border-bomb-orange-500 pb-4">
+                        <i class="fa-solid fa-location-dot text-4xl text-bomb-orange-500 mr-4"></i>
+                        <h2 class="text-4xl font-display font-bold uppercase text-white">Visítanos</h2>
+                    </div>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-5">
+                            <i class="fa-solid fa-clock text-bomb-yellow-400 text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-xl uppercase mb-2">Horarios Explosivos</h4>
+                                <p class="font-medium">Mar - Jue: 18:00 - 23:00</p>
+                                <p class="font-medium">Vie - Dom: 19:00 - 01:00</p>
+                                <p class="text-bomb-orange-500 italic font-bold mt-2">Lunes Cerrado</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-5">
+                            <i class="fa-solid fa-map-pin text-bomb-yellow-400 text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-xl uppercase mb-2">Dirección Bomba</h4>
+                                <p class="font-medium">Av. Principal 1234</p>
+                                <p class="font-medium">Ciudad, Provincia</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-5">
+                            <i class="fa-brands fa-whatsapp text-green-500 text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-xl uppercase mb-2">Delivery Rápido</h4>
+                                <p class="text-xl font-bold text-bomb-orange-500">+54 9 11 0000-0000</p>
+                                <p class="text-sm font-medium opacity-90 mt-1">Envíos sin cargo en la zona.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Embed Mapa -->
+                <div class="w-full md:w-2/3 h-[500px] md:h-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-bomb-orange-600 relative">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14155.115295603548!2d-58.80121050978109!3d-27.507253210161686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94456bcb5cd7b95f%3A0x394b8a2a63d2b3a2!2sHamburgueser%C3%ADa%20Javii!5e0!3m2!1ses!2sar!4v1764289866832!5m2!1ses!2sar" 
+                        class="absolute inset-0 w-full h-full" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-bomb-purple-950 py-10 text-center text-gray-400 text-sm border-t-2 border-bomb-purple-800">
+        <div class="mb-6">
+            <a href="#" class="font-display text-3xl font-bold tracking-wider flex items-center justify-center gap-2 uppercase text-white mb-4">
+                <i class="fa-solid fa-bomb text-bomb-orange-500"></i> The Bomb Burgers
+            </a>
+            <p class="font-medium max-w-md mx-auto">La mejor hamburguesería de la ciudad, con sabores que explotan en tu boca.</p>
+        </div>
+        <div class="mt-6 space-x-6 mb-6">
+            <a href="#" class="text-gray-400 hover:text-bomb-orange-500 text-2xl transition transform hover:scale-110 inline-block"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="text-gray-400 hover:text-bomb-orange-500 text-2xl transition transform hover:scale-110 inline-block"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+        <p class="font-bold uppercase tracking-wider mb-2">&copy; 2023 The Bomb Burgers. Todos los derechos reservados.</p>
+        <p class="text-xs text-bomb-orange-500 font-bold tracking-widest uppercase">Design by Elise</p>
+    </footer>
+
+</body>
+</html>
